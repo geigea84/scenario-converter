@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scenario Converter</title>
+</head>
+<body>
+
+    <div>
+        <h1>Scenario Converter</h1>
+    </div>
+    <div>
+        <p class="warning">
+            <!-- TODO: update to be specific about Description column -->
+            <strong>Important:</strong> This application expects a CSV file (.csv) with a predefined structure. The 
+            column name "Description" (without quotes) must present for the data to be processed correctly.
+        </p>
+        <p>Upload CSV File: </p>
+        <input type="file" id="csvFile" accept=".csv,text/csv">
+    </div>
+    <div>
+        <table id="results">
+            <thead>
+                <tr>
+                    <th>Station</th>
+                    <th>Device</th>
+                    <th>Operation</th>
+                    <th>Last Bracket Text</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.5.3/papaparse.min.js"></script>
+    <script type="module" src="./assets/js/main.js"></script>
+</body>
+</html>
