@@ -6,7 +6,7 @@ import {
 } from "./extractors.js"
 
 const fileInput = document.getElementById("csvFile");
-const output = document.getElementById("output");
+const copyTableButton = document.getElementById("copyTableButton");
 
 fileInput.addEventListener("change", async (event) => {
     const file = event.target.files[0];
@@ -45,6 +45,28 @@ fileInput.addEventListener("change", async (event) => {
     });
 });
 
+copyTableButton.addEventListener("click", async () => {
+    const table = document.getElementById("results");
+    const rows = Array.from(table.querySelectorAll("tr"));
+
+    const tableText = rows
+        .map(row => {
+            const cells = Array.from(row.querySelectorAll("th, td"));
+
+            return cells
+                .map(cell => cell.textContent.trim())
+                .join("\t");
+        })
+        .join("\n");
+
+    try {
+        await navigator.clipboard.writeText(tableText);
+        console.log("Table copied to the clipboard.");
+    } catch (error) {
+        console.error("Failed to copy table: ", error);
+    }
+});
+
 function renderTable(extractedRows) {
     const tableBody = document.querySelector("#results tbody");
 
@@ -76,3 +98,5 @@ function renderTable(extractedRows) {
         tableBody.append(tableRow);
     }
 }
+
+
