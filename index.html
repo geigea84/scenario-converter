@@ -1,45 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="./assets/css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scenario Converter</title>
 </head>
 <body>
-
-    <div>
-        <h1>Scenario Converter</h1>
-    </div>
-    <div>
-        <p class="warning">
-            <!-- TODO: update to be specific about Description column -->
-            <strong>Important:</strong> This application expects a CSV file (.csv) with a predefined structure. The 
-            column name "Description" (without quotes) must be present for the data to be processed correctly.  
-            <!-- TODO: add line break here -->
-            Please see the LINK TO README for more information.
-        </p>
-        <p>Upload CSV File: </p>
-        <input type="file" id="csvFile" accept=".csv,text/csv">
-    </div>
-    <div>
-        <button id="copyTableButton" type="button" disabled>Copy Table</button>
-    </div>
-    <div>
-        <button id="exportCsvButton" type="button" disabled>Export to CSV</button>
-    </div>
-    <div>
-        <table id="results">
-            <thead>
-                <tr>
-                    <th>Station</th>
-                    <th>Device</th>
-                    <th>Operation</th>
-                    <th>Last Bracket Text</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
+    <main class="app-container">
+        <div>
+            <h1>Scenario Converter</h1>
+        </div>
+        <div>
+            <p class="warning">
+                <strong>Important:</strong> This application expects a CSV file (.csv) with a predefined structure. The 
+                column name "Description" (without quotes) must be present for the data to be processed correctly.  
+                <!-- TODO: add line break here -->
+                Please see the LINK TO README for more information.
+            </p>
+        </div>
+        <div class="upload-section">
+            <label for="csv-file">Select a CSV file: </label>
+            <input type="file" id="csv-file" accept=".csv,text/csv">
+        </div>
+        <div class="button-group">
+            <button id="copy-table-button" type="button" disabled>Copy Table</button>
+            <button id="export-csv-button" type="button" disabled>Export to CSV</button>
+        </div>
+        <div>
+            <p id="action-status" role="status" aria-live="polite"></p>
+        </div>
+        <div class="table-container">
+            <table id="results">
+                <thead>
+                    <tr>
+                        <th>Station</th>
+                        <th>Device</th>
+                        <th>Operation</th>
+                        <th>Last Bracket Text</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.5.3/papaparse.min.js"></script>
     <script type="module" src="./assets/js/main.js"></script>

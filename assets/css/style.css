@@ -1,0 +1,171 @@
+/* Global page styling */
+body {
+    margin: 0;
+    padding: 32px;
+    background-color: #f4f6f8;
+    color: #263445;
+    font-family: Arial, sans-serif;
+}
+
+/* Main application container */
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px;
+    background-color: white;
+    border: 1px solid #e0e4e8;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Page heading */
+h1 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* CSV upload section */
+.upload-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.upload-section label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.upload-section input[type="file"] {
+    width: 100%;
+    max-width: 450px;
+    padding: 10px;
+    border: 1px solid #cbd2d9;
+    border-radius: 5px;
+    background-color: #f8fafc;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Style the native file selection button */
+.upload-section input[type="file"]::file-selector-button {
+    padding: 8px 14px;
+    margin-right: 12px;
+    background-color: #263445;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.upload-section input[type="file"]::file-selector-button:hover {
+    background-color: #3c526b;
+}
+
+/* Results table */
+#results {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* Column headers */
+#results th {
+    background-color: #263445;
+    color: white;
+    font-weight: 600;
+    text-align: left;
+    padding: 12px 16px;
+}
+
+/* Data cells */
+#results td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    vertical-align: middle;
+}
+
+/* Alternating row colors */
+#results tbody tr:nth-child(even) {
+    background-color: #f3f5f7;
+}
+
+/* Row hover effect */
+#results tbody tr:hover {
+    background-color: #e4edf7;
+}
+
+/* Button layout */
+.button-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    margin-bottom: 20px;
+}
+
+/* General button styling */
+.button-group button {
+    padding: 10px 18px;
+    background-color: #263445;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.button-group button:hover:not(:disabled) {
+    background-color: #3c526b;
+}
+
+/* Disabled buttons */
+.button-group button:disabled {
+    background-color: #aeb5bd;
+    cursor: not-allowed;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+#results {
+    min-width: 700px;
+}
+
+/* Action status message */
+#action-status {
+    min-height: 20px;
+    margin: 8px 0 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #267347;
+}
+
+#action-status.error {
+    color: #b42318;
+}
+
+/* Smaller screens */
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    .app-container {
+        padding: 16px;
+    }
+
+    .button-group {
+        flex-wrap: wrap;
+    }
+}

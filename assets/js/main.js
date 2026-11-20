@@ -5,9 +5,12 @@ import {
     extractLastBracketText
 } from "./extractors.js"
 
-const fileInput = document.getElementById("csvFile");
-const copyTableButton = document.getElementById("copyTableButton");
-const exportCsvButton = document.getElementById("exportCsvButton");
+const fileInput = document.getElementById("csv-file");
+const copyTableButton = document.getElementById("copy-table-button");
+const exportCsvButton = document.getElementById("export-csv-button");
+const actionStatus = document.getElementById("action-status");
+
+let statusTimeout;
 
 function renderTable(extractedRows) {
     const tableBody = document.querySelector("#results tbody");
@@ -50,6 +53,18 @@ function getTableData() {
 
         return cells.map(cell => cell.textContent.trim());
     });
+}
+
+function showActionStatus(message, isError = false) {
+    clearTimeout(statusTimeout);
+    actionStatus.textContent = "";
+
+    actionStatus.textContent = message;
+    actionStatus.classList.toggle("error", isError);
+
+    statusTimeout = setTimeout(() => {
+        actionStatus.textContent = "";
+    }, 3000);
 }
 
 fileInput.addEventListener("change", (event) => {
@@ -106,9 +121,13 @@ copyTableButton.addEventListener("click", async () => {
 
     try {
         await navigator.clipboard.writeText(tableText);
-        console.log("Table copied to the clipboard.");
+
+        const message = "Table copied to the clipboard.";
+        console.log(message);
+        showActionStatus(message);
     } catch (error) {
         console.error("Failed to copy table: ", error);
+        showActionStatus("Failed to copy table.", true);
     }
 });
 
@@ -132,5 +151,6 @@ exportCsvButton.addEventListener("click", () => {
 
     setTimeout(() => URL.revokeObjectURL(url), 1000);
     
-    console.log("CSV exported successfully");
+    console.log("CSV export initiated");
+    showActionStatus("CSV download started.")
 });
