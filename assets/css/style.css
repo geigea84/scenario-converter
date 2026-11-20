@@ -155,6 +155,44 @@ h1 {
     color: #b42318;
 }
 
+/* README documentation */
+#readme-content {
+    line-height: 1.7;
+}
+
+#readme-content h2 {
+    margin-top: 32px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e0e4e8;
+}
+
+#readme-content h3 {
+    margin-top: 24px;
+}
+
+#readme-content a {
+    color: #2563a6;
+}
+
+#readme-content pre {
+    padding: 16px;
+    background-color: #f3f5f7;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+#readme-content code {
+    font-family: Consolas, monospace;
+}
+
+#readme-content img {
+    max-width: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 /* Smaller screens */
 @media (max-width: 600px) {
     body {

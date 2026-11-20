@@ -4,7 +4,6 @@ A lightweight, browser-based application for extracting structured data from sce
 
 The application parses an uploaded CSV file, processes the `Description` column, and displays extracted information in an HTML table.
 
-
 ## Table of Contents
 
 - [Features](#features)
