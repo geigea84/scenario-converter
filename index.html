@@ -14,13 +14,15 @@
         <p class="warning">
             <!-- TODO: update to be specific about Description column -->
             <strong>Important:</strong> This application expects a CSV file (.csv) with a predefined structure. The 
-            column name "Description" (without quotes) must present for the data to be processed correctly.
+            column name "Description" (without quotes) must be present for the data to be processed correctly.  
+            <!-- TODO: add line break here -->
+            Please see the LINK TO README for more information.
         </p>
         <p>Upload CSV File: </p>
         <input type="file" id="csvFile" accept=".csv,text/csv">
     </div>
     <div>
-        <button id="copyTableButton" type="button">Copy Table</button>
+        <button id="copyTableButton" type="button" disabled>Copy Table</button>
     </div>
     <div>
         <table id="results">

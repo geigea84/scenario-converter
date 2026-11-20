@@ -8,11 +8,14 @@ import {
 const fileInput = document.getElementById("csvFile");
 const copyTableButton = document.getElementById("copyTableButton");
 
-fileInput.addEventListener("change", async (event) => {
+fileInput.addEventListener("change", (event) => {
     const file = event.target.files[0];
 
+    copyTableButton.disabled = true;
+    document.querySelector("#results tbody").replaceChildren();
+
     if (!file) {
-        // TODO: should there be a warning here?
+        // UX choice: if no file is selected, no warning is given, just simply returns.
         return;
     }
 
@@ -38,6 +41,8 @@ fileInput.addEventListener("change", async (event) => {
             console.log("Extracted Rows: ", extractedRows);
 
             renderTable(extractedRows);
+
+            copyTableButton.disabled = extractedRows.length === 0;
         },
         error: (error) => {
             console.error("CSV parsing failed: ", error);
@@ -98,5 +103,3 @@ function renderTable(extractedRows) {
         tableBody.append(tableRow);
     }
 }
-
-
